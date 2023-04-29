@@ -40,8 +40,8 @@ Use the url: `http://localhost:3000/auth/{api}`.
 
 In AuthController, upon successful login, the response contains a **JWT token** that encodes the user's first name, last name, email, isActive, and roles.
 
-### **Build With**
-
+### **Built With**
+<hr>
 #### **Node.js**
 Node.js is a fast and efficient server-side JavaScript runtime environment that allows developers to build scalable and data-intensive real-time applications. Its event-driven, non-blocking I/O model makes it particularly well-suited for building web servers, APIs, microservices, and real-time applications. With a large and active community of developers and a rich ecosystem of libraries, frameworks, and tools, Node.js is a popular choice for building high-performance web applications that run across distributed devices. Its lightweight runtime and cross-platform compatibility make it easy to deploy and run applications on various platforms, and its module system allows for easy extension of its capabilities.
 
