@@ -1,7 +1,7 @@
 const Datastore = require('nedb');
 
-const usersDB = new Datastore('users.db');
-const todosDB = new Datastore('todos.db');
+const usersDB = new Datastore('./databases/users.db');
+const todosDB = new Datastore('./databases/todos.db');
 
 usersDB.loadDatabase();
 todosDB.loadDatabase();
