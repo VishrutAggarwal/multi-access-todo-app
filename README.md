@@ -96,7 +96,7 @@ These are some dependencies you will need
 
 This API can be tested conviniently using [Postman](https://www.postman.com/downloads/).
 
-_For more examples, please refer to the [Documentation]()_
+_For more examples, please refer to the [Documentation](./docs/documentation.md)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
