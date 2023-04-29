@@ -63,9 +63,49 @@ router.post('/register', async (req, res) => {
         })
     } catch (error) {
     console.log(error);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Error: Internal Server Error');
     }
 });
+
+// login existing user
+router.post('/login', async (req, res) => {
+    try {
+        // error condition: required fields missing
+        const { email, password } = await req.body;
+        if (!email || !password) {
+            return res.status(400).send('Error: Missing required fields');
+        }
+
+        // error condition: user not registered
+        const user = await findUserByEmail(email)
+        if(!user) {
+            return res.status(404).send('Error: User not found')
+        }
+        
+        // error condition: user password incorrect
+        const isPasswordValid = await bcrypt.compareSync(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).send('Error: Incorrect Credentials')
+        }
+        // tokenize it
+        const token = jwt.sign({
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            roles: user.roles,
+            isActive: user.isActive,
+            },
+            secret,
+            { expiresIn: '1h' }
+            );
+        // validate it
+        return res.status(200).json({ token })
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
 
 // helper function to find user from user.db which uses promises
 function findUserByEmail(email) {
