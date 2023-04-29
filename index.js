@@ -15,6 +15,9 @@ const { authenticateToken } = require('./middleware/auth.middleware');
 app.use(cors());
 app.use(bodyParser.json());
 
+// add controller functions
+app.use('/auth', authController);
+
 app.listen(3000, () => {
     console.log('Server started on port 3000');
   });
