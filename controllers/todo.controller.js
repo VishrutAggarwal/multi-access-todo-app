@@ -97,3 +97,5 @@ router.delete('/api/todos/:id', authenticateToken, (req, res) => {
 //         )
 //     })
 // }
+
+module.exports = router;

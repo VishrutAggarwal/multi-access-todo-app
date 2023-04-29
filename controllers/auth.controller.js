@@ -123,3 +123,5 @@ function findUserByEmail(email) {
         )
     })
 }
+
+module.exports = router
